@@ -23,12 +23,12 @@
             </Grid.ColumnDefinitions>
 
             <Image x:Name="TitleBarIcon"
-                Source="/Images/WindowIcon.png"
+                Source="/Assets/pdf.png"
                 Grid.Column="1"
                 Width="16" Height="16"
                 Margin="8,0,0,0"/>
             <TextBlock x:Name="TitleTextBlock" 
-                Text="PDF Ex" 
+                Text="PDF Ext" 
                 Style="{StaticResource CaptionTextBlockStyle}"
                 Grid.Column="2"
                 VerticalAlignment="Center"
@@ -39,7 +39,6 @@
                     Grid.Column="5"
                     Margin="0 -10 0 0"
                     Padding="5"
-                    
                     Background="Transparent"
                     BorderBrush="Transparent"
                     HorizontalAlignment="Right"
@@ -59,29 +58,48 @@
             </Button>
 
         </Grid>
-        <ScrollViewer Margin="0,48,0,10">
-            <StackPanel Margin="10">
-                <Button x:Name="btnSelect"
-                Content="Select Files"
-                Click="btnSelect_Click"/>
+        
+            
 
-                <Button x:Name="btnExecute"
-                Content="Extract"
-                Width="100"
-                Height="100"/>
+            <Button x:Name="btnSelect"
+                    Margin="15 48 0 0"
+                    Grid.Row="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Select Files"
+                    Click="btnSelect_Click"/>
 
-                <TextBlock x:Name="PickFilesOutputTextBlock"
-                           FontFamily="Ubuntu"
-                           IsTextSelectionEnabled="True"/>
+            <Button x:Name="btnExecute"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="115 48 0 0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Extract"
+                    Style="{ThemeResource AccentButtonStyle}"/> 
 
-                <ComboBox Text="Select">
-                    <ComboBoxItem Content="Item_001"/>
-                    <ComboBoxItem Content="Item_001"/>
-                    <ComboBoxItem Content="Item_001"/>
-                    <ComboBoxItem Content="Item_001"/>
-                </ComboBox>
-            </StackPanel>
-        </ScrollViewer>
+            <TextBlock x:Name="PickFilesOutputTextBlock"
+                       Margin="15 90 0 0"
+                       Text="Picked Files"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       HorizontalAlignment="Left"
+                       Width="300"
+                       IsTextSelectionEnabled="True"/>
+
+            <ListView x:Name="listFiles"
+                      Grid.Row="2"
+                      CornerRadius="2"
+                      Grid.ColumnSpan="2"
+                      Grid.Column="0"
+                      Margin="15 120 15 15"
+                      BorderBrush="{ThemeResource ControlAAFillColorDefaultBrush}"
+                      BorderThickness="1"/>
+           
+
+        
+        
+        
 
     </Grid>
 </Page>

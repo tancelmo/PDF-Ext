@@ -39,11 +39,11 @@ public sealed partial class MainPage : Page
             AppTitleBar.SizeChanged += AppTitleBar_SizeChanged;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-            //IntPtr hWnd = WindowNative.GetWindowHandle(App.MainWindow);
-            //WindowId wndId = Win32Interop.GetWindowIdFromWindow(hWnd);
-            //var presenter = AppWindow.GetFromWindowId(wndId).Presenter as OverlappedPresenter;
-            //presenter.IsResizable = false;
-            //presenter.IsMaximizable = false;
+            IntPtr hWnd = WindowNative.GetWindowHandle(App.MainWindow);
+            WindowId wndId = Win32Interop.GetWindowIdFromWindow(hWnd);
+            var presenter = AppWindow.GetFromWindowId(wndId).Presenter as OverlappedPresenter;
+            presenter.IsResizable = false;
+            presenter.IsMaximizable = false;
 
         }
         else
@@ -185,12 +185,16 @@ public sealed partial class MainPage : Page
         IReadOnlyList<StorageFile> files = await openPicker.PickMultipleFilesAsync();
         if (files.Count > 0)
         {
+            int i = 0;
             StringBuilder output = new StringBuilder("Picked " + files.Count + " file(s): \n\n");
             foreach (StorageFile file in files)
             {
+                i++;
                 output.Append(file.Name + "\n");
-            }
-            PickFilesOutputTextBlock.Text = output.ToString();
+                listFiles.Items.Add("File " + i + " - " + file.Name);
+            } 
+            // PickFilesOutputTextBlock.Text = output.ToString();
+            PickFilesOutputTextBlock.Text = "Picked " + files.Count + " file(s): \n\n";
         }
         else
         {
