@@ -15,11 +15,11 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="Assets\WindowIco.ico" />
     <Content Remove="Assets\WindowIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\pdf.png" />
+    <None Remove="Assets\WindowIco.ico" />
     <None Remove="Assets\WindowIcon.ico" />
   </ItemGroup>
 

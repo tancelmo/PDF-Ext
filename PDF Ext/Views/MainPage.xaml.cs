@@ -44,7 +44,7 @@ public sealed partial class MainPage : Page
             var presenter = AppWindow.GetFromWindowId(wndId).Presenter as OverlappedPresenter;
             presenter.IsResizable = false;
             presenter.IsMaximizable = false;
-
+            m_AppWindow.SetIcon("Assets/WindowIco.ico");
         }
         else
         {
