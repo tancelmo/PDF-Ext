@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "PDF Ext (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "PDF Ext (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
